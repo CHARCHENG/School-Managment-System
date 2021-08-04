@@ -19,6 +19,13 @@ public interface ScDao
     List<Integer> getStudentSelectCourseCno(String sno);
 
     /**
+     * 根据课程号获得选择该课程的所有学生的sno
+     * @param cno 碳氮氧
+     * @return {@link List<String>}
+     */
+    List<String> getCourseSelectedSno(int cno);
+
+    /**
      * 将信息插入sc
      * @param sno 学号
      * @param cno 课程号

@@ -19,6 +19,11 @@ public class ScServiceImpl implements ScService
     }
 
     @Override
+    public List<String> getCourseSelectSno(int cno) {
+        return scDao.getCourseSelectedSno(cno);
+    }
+
+    @Override
     public void insertCourse(String sno, Integer cno) {
         scDao.insertMessageIntoSc(sno,cno);
     }

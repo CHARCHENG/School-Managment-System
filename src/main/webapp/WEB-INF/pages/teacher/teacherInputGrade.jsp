@@ -26,6 +26,12 @@
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/amazeui.min.js"></script>
     <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript">
+        function lookList(cno)
+        {
+            window.location.href = 'getStudentList?cno=' + cno;
+        }
+    </script>
 </head>
 
 <body>
@@ -90,7 +96,7 @@
                             <td>${course.classroom}</td>
                             <td>${course.weekend}</td>
                             <td>${course.times.timeName}</td>
-                            <td> <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" onclick="window.location.href='getCourseStudents'">单击录入成绩</button></td>
+                            <td> <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" onclick = lookList('${course.cno}')>单击录入成绩</button></td>
                         </tr>
                     </c:forEach>
                     </tbody>
