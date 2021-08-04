@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!--环境配置，连接的数据库，这里使用的是MySQL-->
+    <mappers>
+        <!--这是告诉Mybatis区哪找持久化类的映射文件，对于在src下的文件直接写文件名,如果在某包下，则要写明路径,如：com/mybatistest/config/User.xml-->
+        <mapper resource="com/charlie/dao/StuinfoMapper.xml"/>
+        <mapper resource="com/charlie/dao/CourseMapper.xml"/>
+        <mapper resource="com/charlie/dao/ScMapper.xml"/>
+        <mapper resource="com/charlie/dao/TeacherMapper.xml"/>
+    </mappers>
+</configuration>

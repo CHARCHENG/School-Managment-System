@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--制定扫包规则，只扫描@Service注解的java类-->
+    <context:component-scan base-package="com.charlie.service"/>
+    <!--加载数据库配置文件-->
+    <context:property-placeholder location="classpath:dbconfig.properties"/>
+
+    <!--加载数据源Druid连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+         <property name="url" value="${jdbc.jdbcUrl}"/>
+         <property name="driverClassName" value="${jdbc.driverClassName}"/>
+         <property name="username" value="${jdbc.user}"/>
+         <property name="password" value="${jdbc.password}"/>
+         <property name="initialSize" value="${jdbc.initialSize}"/>
+         <property name="maxActive" value="${jdbc.maxActive}"/>
+         <property name="maxWait" value="${jdbc.maxWait}"/>
+    </bean>
+
+    <!--创建sqlSessionFactory，加载mybatis的配置文件，注入数据源-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+          <property name="dataSource" ref = "dataSource"/>
+          <!--引入mybatis.xml文件-->
+          <property name="configLocation" value="classpath:mybatis.xml"/>
+    </bean>
+
+    <!-- 打开 sqlSession 会话对象，配置扫描器，将mybatis接口的实现加入到ioc容器中 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--扫描所有dao接口的实现，加入到ioc容器中 -->
+        <property name="basePackage" value="com.charlie.dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 配置一个可以执行批量的sqlSession -->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <constructor-arg name="executorType" value="BATCH"/>
+    </bean>
+
+</beans>

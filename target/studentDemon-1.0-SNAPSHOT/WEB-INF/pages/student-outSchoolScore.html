@@ -1,0 +1,175 @@
+<!doctype html>
+<html class="no-js fixed-layout">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>华明大学教务管理系统</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <link rel="icon" type="image/png" href="assets/i/favicon.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="assets/css/admin.css">
+  <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/amazeui.min.js"></script>
+  <script type="text/javascript" src="assets/js/app.js"></script>
+</head>
+<body>
+
+  <image src = "assets/images/大学导航.png"/ style = "height: 145px;">
+	  
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="admin-index.html"><span class="am-icon-home"></span> 首页</a></li>
+		
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav'}"><span class="am-icon-file"></span> 报名申请 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav">
+            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 重修报名</a></li>
+            <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 四六级报名</a></li>
+			<li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 补考确认</a></li>
+			<li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 校外学分替换申请</a></li>
+          </ul>
+        </li>
+		
+        <li>
+			<!-- data-am-collapse中的target对应ul的id -->
+			<a class="am-cf" data-am-collapse="{target: '#collapse-nav-2'}"><span class="am-icon-file"></span> 选课 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+			<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-2">
+                <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生课表查询</a></li>
+                <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生选课(跨学期)</a></li>
+            </ul>
+		</li>
+		
+		<li>
+			<!-- data-am-collapse中的target对应ul的id -->
+			<a class="am-cf" data-am-collapse="{target: '#collapse-nav-3'}"><span class="am-icon-file"></span> 信息查询 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+			<ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-3">
+		        <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生课表查询</a></li>
+		        <li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生成绩查询</a></li>
+				<li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 考试信息查询</a></li>
+				<li><a href="admin-user.html" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生学业情况查询</a></li>
+		    </ul>
+		</li>
+      </ul>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong style="color: brown;">首 页</strong> / <small>你好！XX 同学，</small></div>
+      </div>
+	  
+	  <div class="am-u-md-6">
+	      <div class="am-panel am-panel-default">
+	        <div class="am-panel-hd " data-am-collapse="{target: '#collapse-panel-4'}">通 知<span class="am-icon-chevron-down am-fr" ></span></div>
+	        <div id="collapse-panel-4" class="am-panel-bd am-collapse am-in">
+	          <ul class="am-list admin-content-task">
+				  
+	            <li>
+	              <div class="admin-task-meta"> Posted on 25/1/2120 by John Clark</div>
+	              <div class="admin-task-bd">
+	                <a href="#">【通知】 关于2012-2021学年第二学期期末考试查询和课程补考确认的通知 </a>
+	              </div>
+	            </li>
+				
+	            <li>
+	              <div class="admin-task-meta"> Posted on 25/1/2120 by 呵呵呵</div>
+	              <div class="admin-task-bd">
+	                <a href="#">【通知】 关于2020级大类招生专业分流的名单公式 </a>
+	              </div>
+	            </li>
+				
+	          </ul>
+	        </div>
+	      </div>
+	  </div>
+
+      <!-- <div class="am-g">
+        <div class="am-u-sm-12">
+          <table class="am-table am-table-bd am-table-striped admin-content-table">
+            <thead>
+            <tr>
+              <th>ID</th><th>用户名</th><th>最后成交任务</th><th>成交订单</th><th>管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>1</td><td>John Clark</td><td><a href="#">Business management</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr><td>2</td><td>风清扬</td><td><a href="#">公司LOGO设计</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr><td>3</td><td>詹姆斯</td><td><a href="#">开发一款业务数据软件</a></td><td><span class="am-badge am-badge-warning">+10</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr><td>4</td><td>云适配</td><td><a href="#">适配所有网站</a></td><td><span class="am-badge am-badge-secondary">+50</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+
+            <tr>
+              <td>5</td><td>呵呵呵</td>
+              <td><a href="#">基兰会获得BUFF</a></td>
+              <td><span class="am-badge">+22</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+             </tr>
+            </tbody>
+          </table>
+        </div>
+      </div> -->
+
+</body>
+</html>

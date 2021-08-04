@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.charlie.dao.StuinfoDao">
+
+    <resultMap id="stuinfo" type="com.charlie.entity.Stuinfo">
+        <id property="sno" column="sno"/>
+        <result property="sname" column="sname"/>
+        <result property="spassword" column="spassword"/>
+        <result property="ssex" column="ssex"/>
+        <result property="telephone" column="telephone"/>
+        <result property="birthday" column="birthday"/>
+        <result property="province" column="province"/>
+        <result property="simage" column="simage"/>
+        <result property="years" column="years"/>
+        <result property="term" column="term"/>
+        <association property="classes" javaType="com.charlie.entity.Class">
+            <id property="cid" column="cid"/>
+            <result property="className" column="className"/>
+            <association property="major" javaType="com.charlie.entity.Major">
+                <id property="mid" column="mid"/>
+                <result property="mname" column="mname"/>
+                <association property="department" javaType="com.charlie.entity.Department">
+                    <id property="de_id" column="de_id"/>
+                    <id property="departName" column="departName"/>
+                </association>
+            </association>
+        </association>
+    </resultMap>
+
+    <select id="getStudentMessageBySno" resultMap="stuinfo">
+        select s.* , c.*, m.*, d.* from stuinfo s, class c,major m ,department d where s.cid = c.cid and c.mid = m.mid and m.de_id = d.de_id and sno = #{sno}
+    </select>
+
+</mapper>

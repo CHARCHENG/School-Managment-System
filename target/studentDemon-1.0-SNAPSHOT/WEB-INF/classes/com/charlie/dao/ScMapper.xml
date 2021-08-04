@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.charlie.dao.ScDao">
+
+    <resultMap id="scGrade" type="com.charlie.entity.Sc">
+        <result property="dailyPerformance" column="dailyPerformance"/>
+        <result property="experimentPerformance" column="experimentPerformance"/>
+        <result property="finalexamPerformance" column="finalexamPerformance"/>
+        <result property="finalGrade" column="finalGrade"/>
+        <result property="midtermPerfoemance" column="midtermPerfoemance"/>
+        <association property="stuinfo" javaType="com.charlie.entity.Stuinfo">
+            <id property="sno" column="sno"/>
+        </association>
+        <association property="course" javaType="com.charlie.entity.Course">
+            <id property="cno" column="cno"/>
+            <result property="cname" column="cname"/>
+            <result property="term" column="term"/>
+            <result property="cscore" column="cscore"/>
+            <result property="csname" column="csname"/>
+            <result property="classroom" column="classroom"/>
+            <association property="teacher" javaType="com.charlie.entity.Teacher">
+                <id property="tno" column="tno"/>
+                <result property="tname" column="tname"/>
+                <result property="title" column="title"/>
+                <association property="department" javaType="com.charlie.entity.Department">
+                    <id property="de_id" column="de_id"/>
+                    <result property="departName" column="departName"/>
+                </association>
+            </association>
+        </association>
+    </resultMap>
+
+    <insert id="insertMessageIntoSc" statementType="CALLABLE" >
+        {call insertCourse(#{sno}, #{cno})}
+    </insert>
+
+
+    <delete id="deleteMessageFromSc" statementType="CALLABLE">
+        {call returnCourse(#{sno}, #{cno})}
+    </delete>
+
+
+    <select id="getStudentSelectCourseCno" resultType="java.lang.Integer">
+        select cno from sc where sno = #{sno}
+    </select>
+    
+    <select id="getAllSelectedCourseGrades" resultType="java.util.Map">
+        select dailyPerformance ,experimentPerformance ,finalexamPerformance ,finalGrade ,midtermPerfoemance ,cname ,term ,cscore ,csname ,classroom ,tname ,title, departName from sc, course c, teacher t, department d where sc.cno  = c.cno and c.tno = t.tno and t.de_id = d.de_id and finalGrade &lt;&gt; 0 and sno = #{sno}
+    </select>
+
+</mapper>

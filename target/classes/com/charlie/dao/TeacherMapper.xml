@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.charlie.dao.TeacherDao">
+    <resultMap id="teacher" type="com.charlie.entity.Teacher">
+        <id property="tno" column="tno"/>
+        <result property="tname" column="tname"/>
+        <result property="tpassword" column="tpassword"/>
+        <result property="tbirthdat" column="tbirthdat"/>
+        <result property="title" column="title"/>
+        <result property="graduationSchool" column="graduationSchool"/>
+        <result property="academicDegree" column="academicDegree"/>
+        <result property="employeeDate" column="employeeDate"/>
+        <result property="tsex" column="tsex"/>
+        <association property="department" javaType="com.charlie.entity.Department">
+            <id property="de_id" column="de_id"/>
+            <result property="departName" column="departName"/>
+        </association>
+    </resultMap>
+
+    <resultMap id="teachCourse" type="com.charlie.entity.Course">
+        <id property="cno" column="cno"/>
+        <result property="cname" column="cname"/>
+        <result property="cscore" column="cscore"/>
+        <result property="classroom" column="classroom"/>
+        <result property="weekend" column="weekend"/>
+        <result property="csname" column="csname"/>
+        <association property="times" javaType="com.charlie.entity.Times">
+            <id property="time_id" column="time_id"/>
+            <result property="timeName" column="timeName"/>
+        </association>
+    </resultMap>
+
+    <select id="getTeacherMessageByTno" resultMap="teacher">
+        select t.*, d.* from teacher t ,department d where t.de_id  = d.de_id and tno = #{tno};
+    </select>
+
+    <select id="getCourseMessage" resultMap="teachCourse">
+        select cno, cname, cscore, classroom, weekend, csname, t.* from course c , times t, teacher te where c.tno = te.tno and c.time_id = t.time_id and c.tno = #{tno}
+    </select>
+
+</mapper>
