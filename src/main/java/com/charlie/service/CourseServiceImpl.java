@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
 @Service("courseService")
 public class CourseServiceImpl implements CourseService
@@ -23,5 +22,10 @@ public class CourseServiceImpl implements CourseService
     @Override
     public Course getStudentSelectedCourse(int cno) {
         return courseDao.getStudentSelectedAllCourseMessage(cno);
+    }
+
+    @Override
+    public void updateCourseTestMessage(String testClassroom,String testTimes, Integer cno) {
+        courseDao.updateCourseTestMessage(testClassroom, testTimes ,cno);
     }
 }

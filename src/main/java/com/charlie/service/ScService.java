@@ -2,6 +2,7 @@ package com.charlie.service;
 
 import com.charlie.entity.Course;
 import com.charlie.entity.Sc;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -42,5 +43,20 @@ public interface ScService
      * @return {@link List<Sc>}
      */
     List<Map<String, Object>> getAllSelectedCourseGrades(String sno);
+
+    /**
+     * 更新学生课程成绩
+     *
+     * @param dailyPerformance      日常表现
+     * @param finalexamPerformance  finalexam性能
+     * @param experimentPerformance 实验性能
+     * @param midtermPerfoemance    中期perfoemance
+     * @param finalGrade            最终成绩
+     * @param sno                   学号
+     * @param cno                   课程号
+     */
+    void updateStudentCourseGrade(Integer dailyPerformance, Integer finalexamPerformance, Integer experimentPerformance, Integer midtermPerfoemance, Integer finalGrade, String sno,Integer cno);
+
+
 
 }

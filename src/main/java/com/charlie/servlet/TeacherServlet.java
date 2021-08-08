@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@SessionAttributes(value = {"snos"})
+@SessionAttributes(value = {"snos","courses"})
 public class TeacherServlet
 {
      @Autowired
@@ -50,10 +50,18 @@ public class TeacherServlet
               stuMessages.add(stuinfoService.getUsersMessage(sno));
           }
           mv.addObject("snos",snos);
+          mv.addObject("cno",cno);
           mv.addObject("stuMessages",stuMessages);
           return mv;
      }
 
-
-
+    @RequestMapping(value = "/inputCourseTestMessage", method = RequestMethod.GET)
+    public ModelAndView inputCourseTestMessage(HttpSession httpSession)
+    {
+        ModelAndView mv = new ModelAndView("teacher/teacherInputCourseTestMessage");
+        Teacher teacher = (Teacher) httpSession.getAttribute("teacher");
+        List<Course> courses = teacherService.teachCourse(teacher.getTno());
+        mv.addObject("courses",courses);
+        return mv;
+    }
 }

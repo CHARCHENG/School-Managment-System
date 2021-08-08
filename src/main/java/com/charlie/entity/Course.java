@@ -14,6 +14,9 @@ public class Course
     private Integer weekend;
     private Integer capacity;
     private String csname;
+    private String testClassroom;
+    private String testTimes;
+    private Integer indexs;
     private Times times;
     private Teacher teacher;
 
@@ -106,5 +109,29 @@ public class Course
 
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
+    }
+
+    public String getTestClassroom() {
+        return testClassroom;
+    }
+
+    public void setTestClassroom(String testClassroom) {
+        this.testClassroom = testClassroom;
+    }
+
+    public String getTestTimes() {
+        return testTimes;
+    }
+
+    public void setTestTimes(String testTimes) {
+        this.testTimes = testTimes;
+    }
+
+    public Integer getIndexs() {
+        return indexs;
+    }
+
+    public void setIndexs(Integer indexs) {
+        this.indexs = indexs;
     }
 }

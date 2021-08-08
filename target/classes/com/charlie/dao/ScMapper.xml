@@ -50,8 +50,12 @@
         select sno from sc where cno = #{cno}
     </select>
     
-    <select id="getAllSelectedCourseGrades" resultType="java.lang.String">
+    <select id="getAllSelectedCourseGrades" resultType="java.util.Map">
         select dailyPerformance ,experimentPerformance ,finalexamPerformance ,finalGrade ,midtermPerfoemance ,cname ,term ,cscore ,csname ,classroom ,tname ,title, departName from sc, course c, teacher t, department d where sc.cno  = c.cno and c.tno = t.tno and t.de_id = d.de_id and finalGrade &lt;&gt; 0 and sno = #{sno}
     </select>
+
+    <update id="updateStudentGrade">
+        update sc set dailyPerformance = #{dailyPerformance}, finalexamPerformance = #{finalexamPerformance}, experimentPerformance = #{experimentPerformance}, midtermPerfoemance = #{midtermPerfoemance}, finalGrade = #{finalGrade} where sno = #{sno} and cno = #{cno}
+    </update>
 
 </mapper>

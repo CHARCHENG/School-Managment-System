@@ -43,7 +43,7 @@
                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav-2">
                     <li><a href="getStuSelectMessage" class="am-cf"><span class="am-icon-puzzle-piece"></span> 教学班教材信息录入</a></li>
                     <li><a href="getAllCourse" class="am-cf"><span class="am-icon-puzzle-piece"></span> 教学计划录入</a></li>
-                    <li><a href="getStuSelectMessage" class="am-cf"><span class="am-icon-puzzle-piece"></span> 教学班考试信息录入 </a></li>
+                    <li><a href="inputCourseTestMessage" class="am-cf"><span class="am-icon-puzzle-piece"></span> 教学班考试信息录入 </a></li>
                     <li><a href="getCourseStudents" class="am-cf"><span class="am-icon-puzzle-piece"></span> 学生成绩录入 </a></li>
                 </ul>
             </li>
@@ -68,6 +68,7 @@
 
         <div class="am-g">
                 <form:form action="updateStuGrade" method="post">
+                    <input type="hidden" name="cno" value="${cno}">
                     <div class="row" style="text-align:center">
                         <div class="col-lg-3">平时成绩(%)</div>
                         <div class="col-lg-3">实验成绩(%)</div>

@@ -36,4 +36,8 @@
         select c.*, tname ,title, d.* from course c ,teacher t, department d where c.tno = t.tno and t.de_id  = d.de_id and (c.term = 0 or c.term = #{term}) and (c.locked = 0 or c.locked = #{de_id})  order by cname
     </select>
 
+    <update id="updateCourseTestMessage" statementType="CALLABLE">
+        {call updateTestMessage(#{testClassroom},#{testTimes}, #{cno})}
+    </update>
+
 </mapper>

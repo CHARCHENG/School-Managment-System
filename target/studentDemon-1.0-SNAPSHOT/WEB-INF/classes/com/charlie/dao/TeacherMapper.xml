@@ -26,6 +26,9 @@
         <result property="classroom" column="classroom"/>
         <result property="weekend" column="weekend"/>
         <result property="csname" column="csname"/>
+        <result property="testClassroom" column="testClassroom"/>
+        <result property="testTimes" column="testTimes"/>
+        <result property="indexs" column="indexs"/>
         <association property="times" javaType="com.charlie.entity.Times">
             <id property="time_id" column="time_id"/>
             <result property="timeName" column="timeName"/>
@@ -37,7 +40,7 @@
     </select>
 
     <select id="getCourseMessage" resultMap="teachCourse">
-        select cno, cname, cscore, classroom, weekend, csname, t.* from course c , times t, teacher te where c.tno = te.tno and c.time_id = t.time_id and c.tno = #{tno}
+        select cno, cname, cscore, classroom, weekend, csname, indexs, t.* from course c , times t, teacher te where c.tno = te.tno and c.time_id = t.time_id and c.tno = #{tno}
     </select>
 
 </mapper>

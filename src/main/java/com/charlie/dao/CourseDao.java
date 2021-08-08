@@ -24,4 +24,8 @@ public interface CourseDao
      * @return {@link List<Course>}
      */
     List<Course> getAllCourseMessage(@Param("term") Integer term,@Param("de_id") Integer de_id);
+
+
+
+    void updateCourseTestMessage(@Param("testClassroom")String testClassroom, @Param("testTimes")String testTimes, @Param("cno")Integer cno);
 }

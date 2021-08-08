@@ -20,4 +20,13 @@ public interface CourseService
      */
     Course getStudentSelectedCourse(int cno);
 
+
+    /**
+     * 更新课程测试消息
+     *
+     * @param testClassroom 考试的教室
+     * @param testTimes     测试时间
+     * @param cno           学号
+     */
+    void updateCourseTestMessage(String testClassroom,String testTimes, Integer cno);
 }

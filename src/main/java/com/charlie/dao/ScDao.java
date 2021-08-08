@@ -48,4 +48,11 @@ public interface ScDao
      */
     List<Map<String, Object>> getAllSelectedCourseGrades(String sno);
 
+    /**
+     * 更新学生成绩
+     * @param sno 学号
+     * @param cno 课程号
+     */
+    void updateStudentGrade(@Param("dailyPerformance") Integer dailyPerformance, @Param("finalexamPerformance") Integer finalexamPerformance,@Param("experimentPerformance") Integer experimentPerformance, @Param("midtermPerfoemance") Integer midtermPerfoemance, @Param("finalGrade") Integer finalGrade, @Param("sno") String sno, @Param("cno") Integer cno);
+
 }

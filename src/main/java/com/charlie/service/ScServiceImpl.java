@@ -37,4 +37,9 @@ public class ScServiceImpl implements ScService
     public List<Map<String, Object>> getAllSelectedCourseGrades(String sno) {
         return scDao.getAllSelectedCourseGrades(sno);
     }
+
+    @Override
+    public void updateStudentCourseGrade(Integer dailyPerformance, Integer finalexamPerformance, Integer experimentPerformance, Integer midtermPerfoemance, Integer finalGrade, String sno, Integer cno) {
+        scDao.updateStudentGrade(dailyPerformance,finalexamPerformance,experimentPerformance,midtermPerfoemance,finalGrade,sno,cno);
+    }
 }
